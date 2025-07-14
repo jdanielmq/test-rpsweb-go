@@ -9,7 +9,7 @@ import (
 func main() {
 
 	router := http.NewServeMux()
-	router.HandleFunc("/index", handlers.Index)
+	router.HandleFunc("/", handlers.Index)
 	router.HandleFunc("/game", handlers.Game)
 	router.HandleFunc("/newGame", handlers.NewGame)
 	router.HandleFunc("/play", handlers.Play)
