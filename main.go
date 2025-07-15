@@ -9,6 +9,10 @@ import (
 func main() {
 
 	router := http.NewServeMux()
+
+	fs := http.FileServer(http.Dir("static"))
+	router.Handle("/static/", http.StripPrefix("/static/", fs))
+
 	router.HandleFunc("/", handlers.Index)
 	router.HandleFunc("/game", handlers.Game)
 	router.HandleFunc("/newGame", handlers.NewGame)
